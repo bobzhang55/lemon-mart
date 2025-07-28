@@ -33,7 +33,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
         aria-label="Inventory">
         <mat-icon>list</mat-icon>
       </button>
-      <button mat-mini-fab routerLink="/pos" matTooltip="POS" aria- label="POS">
+      <button mat-mini-fab routerLink="/pos" matTooltip="POS" aria-label="POS">
         <mat-icon>shopping_cart</mat-icon>
       </button>
     </mat-toolbar>

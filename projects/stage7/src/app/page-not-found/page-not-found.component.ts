@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Component } from '@angular/core'
 import { RouterLink } from '@angular/router'
 
