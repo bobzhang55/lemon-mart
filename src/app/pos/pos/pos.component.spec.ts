@@ -8,31 +8,31 @@ import { TransactionService } from '../transaction/transaction.service'
 import { PosComponent } from './pos.component'
 
 describe('PosComponent', () => {
-  let component: PosComponent
-  let fixture: ComponentFixture<PosComponent>
-  let transactionServiceMock: jasmine.SpyObj<TransactionService>
+	let component: PosComponent
+	let fixture: ComponentFixture<PosComponent>
+	let transactionServiceMock: jasmine.SpyObj<TransactionService>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        ...commonTestingProviders,
-        { provide: TransactionService, useValue: autoSpyObj(TransactionService) },
-      ],
-      imports: [...commonTestingModules, PosComponent],
-    }).compileComponents(),
-      (transactionServiceMock = injectSpy(TransactionService))
-  }))
+	beforeEach(waitForAsync(() => {
+		TestBed.configureTestingModule({
+			providers: [
+				...commonTestingProviders,
+				{ provide: TransactionService, useValue: autoSpyObj(TransactionService) },
+			],
+			imports: [...commonTestingModules, PosComponent],
+		}).compileComponents(),
+			(transactionServiceMock = injectSpy(TransactionService))
+	}))
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PosComponent)
-    component = fixture.componentInstance
-  })
+	beforeEach(() => {
+		fixture = TestBed.createComponent(PosComponent)
+		component = fixture.componentInstance
+	})
 
-  it('should create', () => {
-    transactionServiceMock.processTransaction.and.returnValue(
-      of('5a6352c6810c19729de860ea')
-    )
-    fixture.detectChanges()
-    expect(component).toBeTruthy()
-  })
+	it('should create', () => {
+		transactionServiceMock.processTransaction.and.returnValue(
+			of('5a6352c6810c19729de860ea')
+		)
+		fixture.detectChanges()
+		expect(component).toBeTruthy()
+	})
 })

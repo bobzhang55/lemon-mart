@@ -6,7 +6,7 @@ import { AuthMode } from '../app/auth/auth.enum'
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  baseUrl: 'http://localhost:3000',
-  authMode: AuthMode.CustomServer,
+	production: false,
+	baseUrl: 'http://localhost:3000',
+	authMode: AuthMode.CustomServer,
 }

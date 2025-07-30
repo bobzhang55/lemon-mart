@@ -7,20 +7,20 @@ import { ProfileComponent } from './profile/profile.component'
 import { userResolver } from './user/user.resolve'
 
 const routes: Routes = [
-  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
-  {
-    path: 'profile/:userId',
-    component: ProfileComponent,
-    resolve: {
-      user: userResolver,
-    },
-    canActivate: [authGuard],
-  },
-  { path: 'logout', component: LogoutComponent },
+	{ path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+	{
+		path: 'profile/:userId',
+		component: ProfileComponent,
+		resolve: {
+			user: userResolver,
+		},
+		canActivate: [authGuard],
+	},
+	{ path: 'logout', component: LogoutComponent },
 ]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class UserRoutingModule { }
+export class UserRoutingModule {}

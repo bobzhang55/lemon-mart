@@ -11,15 +11,15 @@ import { UserService } from './user/user.service'
 import { UserRoutingModule } from './user-routing.module'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    NgxMaskDirective,
-    ProfileComponent,
-    LogoutComponent,
-  ],
-  providers: [UserService, UserEntityService, provideNgxMask()],
+	imports: [
+		CommonModule,
+		UserRoutingModule,
+		ReactiveFormsModule,
+		FlexLayoutModule,
+		NgxMaskDirective,
+		ProfileComponent,
+		LogoutComponent,
+	],
+	providers: [UserService, UserEntityService, provideNgxMask()],
 })
-export class UserModule { }
+export class UserModule {}

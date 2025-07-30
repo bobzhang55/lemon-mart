@@ -6,14 +6,14 @@ import { CustomGraphQLAuthService } from './auth.graphql.custom.service'
 import { InMemoryAuthService } from './auth.in-memory.service'
 
 export function authFactory() {
-  switch (environment.authMode) {
-    case AuthMode.InMemory:
-      return new InMemoryAuthService()
-    case AuthMode.CustomServer:
-      return new CustomAuthService()
-    case AuthMode.CustomGraphQL:
-      return new CustomGraphQLAuthService()
-    case AuthMode.Firebase:
-      return new FirebaseAuthService()
-  }
+	switch (environment.authMode) {
+		case AuthMode.InMemory:
+			return new InMemoryAuthService()
+		case AuthMode.CustomServer:
+			return new CustomAuthService()
+		case AuthMode.CustomGraphQL:
+			return new CustomGraphQLAuthService()
+		case AuthMode.Firebase:
+			return new FirebaseAuthService()
+	}
 }

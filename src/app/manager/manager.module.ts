@@ -12,18 +12,18 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { UserTableComponent } from './user-table/user-table.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FlexLayoutModule,
-    FormsModule,
-    ManagerComponent,
-    ManagerHomeComponent,
-    ManagerRoutingModule,
-    ReactiveFormsModule,
-    ReceiptLookupComponent,
-    UserManagementComponent,
-    UserTableComponent,
-  ],
-  providers: [UserService],
+	imports: [
+		CommonModule,
+		FlexLayoutModule,
+		FormsModule,
+		ManagerComponent,
+		ManagerHomeComponent,
+		ManagerRoutingModule,
+		ReactiveFormsModule,
+		ReceiptLookupComponent,
+		UserManagementComponent,
+		UserTableComponent,
+	],
+	providers: [UserService],
 })
-export class ManagerModule { }
+export class ManagerModule {}

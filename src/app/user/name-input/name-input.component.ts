@@ -7,15 +7,15 @@ import { FlexModule } from '@ngbracket/ngx-layout/flex'
 import { BaseFormDirective } from '../../common/base-form.class'
 import { OneCharValidation, RequiredTextValidation } from '../../common/validations'
 import {
-  ErrorSets,
-  FieldErrorDirective,
+	ErrorSets,
+	FieldErrorDirective,
 } from '../../user-controls/field-error/field-error.directive'
 import { IName } from '../user/user'
 
 @Component({
-  selector: 'app-name-input',
-  // prettier-ignore
-  template: `
+	selector: 'app-name-input',
+	// prettier-ignore
+	template: `
     <form [formGroup]="formGroup">
       <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px">
         <mat-form-field appearance="outline" fxFlex="40%">
@@ -42,45 +42,46 @@ import { IName } from '../user/user'
       </div>
     </form>
   `,
-  styles: `
+	styles: `
       .mat-mdc-form-field {
         padding-top: 16px;
       }
   `,
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    FlexModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FieldErrorDirective,
-  ],
+	standalone: true,
+	imports: [
+		ReactiveFormsModule,
+		FlexModule,
+		MatFormFieldModule,
+		MatInputModule,
+		FieldErrorDirective,
+	],
 })
 export class NameInputComponent
-  extends BaseFormDirective<IName>
-  implements OnInit, OnChanges {
-  ErrorSets = ErrorSets
+	extends BaseFormDirective<IName>
+	implements OnInit, OnChanges
+{
+	ErrorSets = ErrorSets
 
-  constructor(private formBuilder: FormBuilder) {
-    super()
-  }
+	constructor(private formBuilder: FormBuilder) {
+		super()
+	}
 
-  ngOnInit() {
-    this.formGroup = this.buildForm(this.initialData)
-    this.formReady.emit(this.formGroup)
-  }
+	ngOnInit() {
+		this.formGroup = this.buildForm(this.initialData)
+		this.formReady.emit(this.formGroup)
+	}
 
-  buildForm(initialData?: IName | null): FormGroup {
-    const name = initialData
-    return this.formBuilder.group({
-      first: [name?.first || '', RequiredTextValidation],
-      middle: [name?.middle || '', OneCharValidation],
-      last: [name?.last || '', RequiredTextValidation],
-    })
-  }
+	buildForm(initialData?: IName | null): FormGroup {
+		const name = initialData
+		return this.formBuilder.group({
+			first: [name?.first || '', RequiredTextValidation],
+			middle: [name?.middle || '', OneCharValidation],
+			last: [name?.last || '', RequiredTextValidation],
+		})
+	}
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.disable ? this.formGroup?.disable() : this.formGroup?.enable()
-    this.patchUpdatedDataIfChanged(changes)
-  }
+	ngOnChanges(changes: SimpleChanges) {
+		this.disable ? this.formGroup?.disable() : this.formGroup?.enable()
+		this.patchUpdatedDataIfChanged(changes)
+	}
 }

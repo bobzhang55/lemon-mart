@@ -12,53 +12,53 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { UserTableComponent } from './user-table/user-table.component'
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ManagerComponent,
-    children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      {
-        path: 'home',
-        component: ManagerHomeComponent,
-        canActivate: [authGuard],
-        data: {
-          expectedRole: Role.Manager,
-        },
-      },
-      {
-        path: 'users',
-        component: UserManagementComponent,
-        children: [
-          { path: '', component: UserTableComponent, outlet: 'master' },
-          {
-            path: 'user',
-            component: ViewUserComponent,
-            outlet: 'detail',
-            resolve: {
-              user: userResolver,
-            },
-          },
-        ],
-        canActivate: [authGuard],
-        canActivateChild: [authGuard],
-        data: {
-          expectedRole: Role.Manager,
-        },
-      },
-      {
-        path: 'receipts',
-        component: ReceiptLookupComponent,
-        canActivate: [authGuard],
-        data: {
-          expectedRole: Role.Manager,
-        },
-      },
-    ],
-  },
+	{
+		path: '',
+		component: ManagerComponent,
+		children: [
+			{ path: '', redirectTo: 'home', pathMatch: 'full' },
+			{
+				path: 'home',
+				component: ManagerHomeComponent,
+				canActivate: [authGuard],
+				data: {
+					expectedRole: Role.Manager,
+				},
+			},
+			{
+				path: 'users',
+				component: UserManagementComponent,
+				children: [
+					{ path: '', component: UserTableComponent, outlet: 'master' },
+					{
+						path: 'user',
+						component: ViewUserComponent,
+						outlet: 'detail',
+						resolve: {
+							user: userResolver,
+						},
+					},
+				],
+				canActivate: [authGuard],
+				canActivateChild: [authGuard],
+				data: {
+					expectedRole: Role.Manager,
+				},
+			},
+			{
+				path: 'receipts',
+				component: ReceiptLookupComponent,
+				canActivate: [authGuard],
+				data: {
+					expectedRole: Role.Manager,
+				},
+			},
+		],
+	},
 ]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class ManagerRoutingModule { }
+export class ManagerRoutingModule {}

@@ -5,7 +5,7 @@ import { finalize } from 'rxjs'
 import { UiService } from './ui.service'
 
 export function LoadingHttpInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn) {
-  const uiService = inject(UiService)
-  uiService.showLoader()
-  return next(req).pipe(finalize(() => uiService.hideLoader()))
+	const uiService = inject(UiService)
+	uiService.showLoader()
+	return next(req).pipe(finalize(() => uiService.hideLoader()))
 }

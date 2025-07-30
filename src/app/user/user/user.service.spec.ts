@@ -4,14 +4,14 @@ import { commonTestingModules, commonTestingProviders } from '../../common/commo
 import { UserService } from './user.service'
 
 describe('UserService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [commonTestingModules],
-      providers: [UserService, commonTestingProviders],
-    })
-  })
+	beforeEach(() => {
+		TestBed.configureTestingModule({
+			imports: [commonTestingModules],
+			providers: [UserService, commonTestingProviders],
+		})
+	})
 
-  it('should be created', inject([UserService], (service: UserService) => {
-    expect(service).toBeTruthy()
-  }))
+	it('should be created', inject([UserService], (service: UserService) => {
+		expect(service).toBeTruthy()
+	}))
 })

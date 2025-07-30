@@ -1,9 +1,9 @@
 import { EntityMetadataMap } from '@ngrx/data'
 
 const entityMetadata: EntityMetadataMap = {
-  User: {},
+	User: {},
 }
 
 export const entityConfig = {
-  entityMetadata,
+	entityMetadata,
 }

@@ -4,23 +4,23 @@ import { commonTestingModules, commonTestingProviders } from '../common/common.t
 import { ManagerComponent } from './manager.component'
 
 describe('ManagerComponent', () => {
-  let component: ManagerComponent
-  let fixture: ComponentFixture<ManagerComponent>
+	let component: ManagerComponent
+	let fixture: ComponentFixture<ManagerComponent>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      providers: [...commonTestingProviders],
-      imports: [...commonTestingModules, ManagerComponent],
-    }).compileComponents()
-  }))
+	beforeEach(waitForAsync(() => {
+		TestBed.configureTestingModule({
+			providers: [...commonTestingProviders],
+			imports: [...commonTestingModules, ManagerComponent],
+		}).compileComponents()
+	}))
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ManagerComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ManagerComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
 
-  it('should create', () => {
-    expect(component).toBeTruthy()
-  })
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
 })

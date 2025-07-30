@@ -6,7 +6,7 @@ import { PosRoutingModule } from './pos-routing.module'
 import { TransactionService } from './transaction/transaction.service'
 
 @NgModule({
-  imports: [CommonModule, PosRoutingModule, PosComponent],
-  providers: [TransactionService],
+	imports: [CommonModule, PosRoutingModule, PosComponent],
+	providers: [TransactionService],
 })
-export class PosModule { }
+export class PosModule {}

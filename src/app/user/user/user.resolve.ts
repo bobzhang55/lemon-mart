@@ -7,7 +7,7 @@ import { User } from './user'
 import { UserService } from './user.service'
 
 export const userResolver: ResolveFn<User> = (route: ActivatedRouteSnapshot) => {
-  return inject(UserService)
-    .getUser(route.paramMap.get('userId'))
-    .pipe(map(User.Build), catchError(transformError))
+	return inject(UserService)
+		.getUser(route.paramMap.get('userId'))
+		.pipe(map(User.Build), catchError(transformError))
 }

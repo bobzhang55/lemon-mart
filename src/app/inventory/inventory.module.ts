@@ -9,14 +9,14 @@ import { ProductsComponent } from './products/products.component'
 import { StockEntryComponent } from './stock-entry/stock-entry.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    InventoryRoutingModule,
-    InventoryComponent,
-    StockEntryComponent,
-    ProductsComponent,
-    CategoriesComponent,
-    InventoryHomeComponent,
-  ],
+	imports: [
+		CommonModule,
+		InventoryRoutingModule,
+		InventoryComponent,
+		StockEntryComponent,
+		ProductsComponent,
+		CategoriesComponent,
+		InventoryHomeComponent,
+	],
 })
-export class InventoryModule { }
+export class InventoryModule {}

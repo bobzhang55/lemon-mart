@@ -1,5 +1,5 @@
 export enum TransactionType {
-  Cash,
-  Credit,
-  LemonCoin,
+	Cash,
+	Credit,
+	LemonCoin,
 }
