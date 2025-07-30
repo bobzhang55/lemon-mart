@@ -1,12 +1,12 @@
 import { AsyncPipe } from '@angular/common'
 import {
-  AfterViewInit,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  signal,
-  ViewChild,
+	AfterViewInit,
+	Component,
+	computed,
+	DestroyRef,
+	inject,
+	signal,
+	ViewChild,
 } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -32,136 +32,136 @@ import { IUser } from '../../user/user/user'
 import { UserService } from '../../user/user/user.service'
 
 @Component({
-  selector: 'app-user-table',
-  templateUrl: './user-table.component.html',
-  styleUrls: ['./user-table.component.scss'],
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    FlexModule,
-    FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatProgressSpinnerModule,
-    MatRippleModule,
-    MatSlideToggleModule,
-    MatSortModule,
-    MatTableModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-    RouterLink,
-  ],
+	selector: 'app-user-table',
+	templateUrl: './user-table.component.html',
+	styleUrls: ['./user-table.component.scss'],
+	standalone: true,
+	imports: [
+		AsyncPipe,
+		FlexModule,
+		FormsModule,
+		MatButtonModule,
+		MatFormFieldModule,
+		MatIconModule,
+		MatInputModule,
+		MatPaginatorModule,
+		MatProgressSpinnerModule,
+		MatRippleModule,
+		MatSlideToggleModule,
+		MatSortModule,
+		MatTableModule,
+		MatToolbarModule,
+		ReactiveFormsModule,
+		RouterLink,
+	],
 })
 export class UserTableComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator
-  @ViewChild(MatSort) sort!: MatSort
+	@ViewChild(MatPaginator) paginator!: MatPaginator
+	@ViewChild(MatSort) sort!: MatSort
 
-  private skipLoading = false
-  private readonly userService = inject(UserService)
-  private readonly router = inject(Router)
-  private readonly activatedRoute = inject(ActivatedRoute)
-  private readonly destroyRef = inject(DestroyRef)
+	private skipLoading = false
+	private readonly userService = inject(UserService)
+	private readonly router = inject(Router)
+	private readonly activatedRoute = inject(ActivatedRoute)
+	private readonly destroyRef = inject(DestroyRef)
 
-  readonly refresh$ = new Subject<void>()
+	readonly refresh$ = new Subject<void>()
 
-  readonly demoViewDetailsColumn = signal(false)
+	readonly demoViewDetailsColumn = signal(false)
 
-  items$!: Observable<IUser[]>
-  displayedColumns = computed(() => [
-    'name',
-    'email',
-    'role',
-    ...(this.demoViewDetailsColumn() ? ['_id'] : []),
-  ])
+	items$!: Observable<IUser[]>
+	displayedColumns = computed(() => [
+		'name',
+		'email',
+		'role',
+		...(this.demoViewDetailsColumn() ? ['_id'] : []),
+	])
 
-  isLoading = true
-  resultsLength = 0
-  hasError = false
-  errorText = ''
-  selectedRow?: IUser
+	isLoading = true
+	resultsLength = 0
+	hasError = false
+	errorText = ''
+	selectedRow?: IUser
 
-  search = new FormControl<string>('', OptionalTextValidation)
+	search = new FormControl<string>('', OptionalTextValidation)
 
-  resetPage(stayOnPage = false) {
-    if (!stayOnPage) {
-      this.paginator.firstPage()
-    }
-    // this.outletCloser.closeOutlet('detail')
-    this.router.navigate(['../users', { outlets: { detail: null } }], {
-      skipLocationChange: true,
-      relativeTo: this.activatedRoute,
-    })
-    this.selectedRow = undefined
-  }
+	resetPage(stayOnPage = false) {
+		if (!stayOnPage) {
+			this.paginator.firstPage()
+		}
+		// this.outletCloser.closeOutlet('detail')
+		this.router.navigate(['../users', { outlets: { detail: null } }], {
+			skipLocationChange: true,
+			relativeTo: this.activatedRoute,
+		})
+		this.selectedRow = undefined
+	}
 
-  showDetail(userId: string) {
-    this.router.navigate(
-      ['../users', { outlets: { detail: ['user', { userId: userId }] } }],
-      {
-        skipLocationChange: true,
-        relativeTo: this.activatedRoute,
-      }
-    )
-  }
+	showDetail(userId: string) {
+		this.router.navigate(
+			['../users', { outlets: { detail: ['user', { userId: userId }] } }],
+			{
+				skipLocationChange: true,
+				relativeTo: this.activatedRoute,
+			}
+		)
+	}
 
-  ngAfterViewInit() {
-    this.sort.sortChange
-      .pipe(
-        tap(() => this.resetPage()),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe()
+	ngAfterViewInit() {
+		this.sort.sortChange
+			.pipe(
+				tap(() => this.resetPage()),
+				takeUntilDestroyed(this.destroyRef)
+			)
+			.subscribe()
 
-    this.paginator.page
-      .pipe(
-        tap(() => this.resetPage(true)),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe()
+		this.paginator.page
+			.pipe(
+				tap(() => this.resetPage(true)),
+				takeUntilDestroyed(this.destroyRef)
+			)
+			.subscribe()
 
-    if (this.skipLoading) {
-      return
-    }
+		if (this.skipLoading) {
+			return
+		}
 
-    setTimeout(() => {
-      this.items$ = merge(
-        this.refresh$,
-        this.sort.sortChange,
-        this.paginator.page,
-        this.search.valueChanges.pipe(
-          debounceTime(1000),
-          tap(() => this.resetPage())
-        )
-      ).pipe(
-        startWith({}),
-        switchMap(() => {
-          this.isLoading = true
-          return this.userService.getUsers(
-            this.paginator.pageSize,
-            this.search.value as string,
-            this.paginator.pageIndex,
-            this.sort.active,
-            this.sort.direction
-          )
-        }),
-        map((results: { total: number; data: IUser[] }) => {
-          this.isLoading = false
-          this.hasError = false
-          this.resultsLength = results.total
+		setTimeout(() => {
+			this.items$ = merge(
+				this.refresh$,
+				this.sort.sortChange,
+				this.paginator.page,
+				this.search.valueChanges.pipe(
+					debounceTime(1000),
+					tap(() => this.resetPage())
+				)
+			).pipe(
+				startWith({}),
+				switchMap(() => {
+					this.isLoading = true
+					return this.userService.getUsers(
+						this.paginator.pageSize,
+						this.search.value as string,
+						this.paginator.pageIndex,
+						this.sort.active,
+						this.sort.direction
+					)
+				}),
+				map((results: { total: number; data: IUser[] }) => {
+					this.isLoading = false
+					this.hasError = false
+					this.resultsLength = results.total
 
-          return results.data
-        }),
-        catchError((err) => {
-          this.isLoading = false
-          this.hasError = true
-          this.errorText = err
-          return of([])
-        }),
-        takeUntilDestroyed(this.destroyRef)
-      )
-    })
-  }
+					return results.data
+				}),
+				catchError((err) => {
+					this.isLoading = false
+					this.hasError = true
+					this.errorText = err
+					return of([])
+				}),
+				takeUntilDestroyed(this.destroyRef)
+			)
+		})
+	}
 }

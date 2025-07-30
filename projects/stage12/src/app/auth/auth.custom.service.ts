@@ -11,46 +11,46 @@ import { Role } from './auth.enum'
 import { AuthService, IAuthStatus, IServerAuthResponse } from './auth.service'
 
 interface IJwtToken {
-  email: string
-  role: string
-  picture: string
-  iat: number
-  exp: number
-  sub: string
+	email: string
+	role: string
+	picture: string
+	iat: number
+	exp: number
+	sub: string
 }
 
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root',
 })
 export class CustomAuthService extends AuthService {
-  private httpClient: HttpClient = inject(HttpClient)
+	private httpClient: HttpClient = inject(HttpClient)
 
-  protected authProvider(
-    email: string,
-    password: string
-  ): Observable<IServerAuthResponse> {
-    return this.httpClient.post<IServerAuthResponse>(
-      `${environment.baseUrl}/v1/auth/login`,
-      {
-        email,
-        password,
-      }
-    )
-  }
+	protected authProvider(
+		email: string,
+		password: string
+	): Observable<IServerAuthResponse> {
+		return this.httpClient.post<IServerAuthResponse>(
+			`${environment.baseUrl}/v1/auth/login`,
+			{
+				email,
+				password,
+			}
+		)
+	}
 
-  protected transformJwtToken(token: IJwtToken): IAuthStatus {
-    return {
-      isAuthenticated: token.email ? true : false,
-      userId: token.sub,
-      userRole: $enum(Role).asValueOrDefault(token.role, Role.None),
-      userEmail: token.email,
-      userPicture: token.picture,
-    } as IAuthStatus
-  }
+	protected transformJwtToken(token: IJwtToken): IAuthStatus {
+		return {
+			isAuthenticated: token.email ? true : false,
+			userId: token.sub,
+			userRole: $enum(Role).asValueOrDefault(token.role, Role.None),
+			userEmail: token.email,
+			userPicture: token.picture,
+		} as IAuthStatus
+	}
 
-  protected getCurrentUser(): Observable<User> {
-    return this.httpClient
-      .get<IUser>(`${environment.baseUrl}/v1/auth/me`)
-      .pipe(map(User.Build, catchError(transformError)))
-  }
+	protected getCurrentUser(): Observable<User> {
+		return this.httpClient
+			.get<IUser>(`${environment.baseUrl}/v1/auth/me`)
+			.pipe(map(User.Build, catchError(transformError)))
+	}
 }

@@ -3,17 +3,17 @@ import { Component, inject, ViewEncapsulation } from '@angular/core'
 import { UiService } from './ui.service'
 
 @Component({
-  selector: 'app-loading-overlay',
-  template: `
-    @if (uiService.isLoading()) {
-      <div class="overlay">
-        <div class="center">
-          <img alt="loading" class="spinner" src="assets/img/icons/lemon.svg" />
-        </div>
-      </div>
-    }
-  `,
-  styles: `
+	selector: 'app-loading-overlay',
+	template: `
+		@if (uiService.isLoading()) {
+			<div class="overlay">
+				<div class="center">
+					<img alt="loading" class="spinner" src="assets/img/icons/lemon.svg" />
+				</div>
+			</div>
+		}
+	`,
+	styles: `
     .overlay {
       position: fixed;
       width: 100%;
@@ -44,9 +44,9 @@ import { UiService } from './ui.service'
         transform: translate(-50%, -50%);
       }
   `,
-  standalone: true,
-  encapsulation: ViewEncapsulation.ShadowDom,
+	standalone: true,
+	encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class LoadingOverlayComponent {
-  readonly uiService = inject(UiService)
+	readonly uiService = inject(UiService)
 }
