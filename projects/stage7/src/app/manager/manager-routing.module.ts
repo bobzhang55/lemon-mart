@@ -8,20 +8,20 @@ import { ReceiptLookupComponent } from './receipt-lookup/receipt-lookup.componen
 import { UserManagementComponent } from './user-management/user-management.component'
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ManagerComponent,
-    children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: ManagerHomeComponent },
-      { path: 'users', component: UserManagementComponent },
-      { path: 'receipts', component: ReceiptLookupComponent },
-    ],
-  },
+	{
+		path: '',
+		component: ManagerComponent,
+		children: [
+			{ path: '', redirectTo: 'home', pathMatch: 'full' },
+			{ path: 'home', component: ManagerHomeComponent },
+			{ path: 'users', component: UserManagementComponent },
+			{ path: 'receipts', component: ReceiptLookupComponent },
+		],
+	},
 ]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class ManagerRoutingModule { }
+export class ManagerRoutingModule {}

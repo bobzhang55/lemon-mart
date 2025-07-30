@@ -7,5 +7,5 @@ import { provideRouter } from '@angular/router'
 import { routes } from './app.routes'
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideAnimationsAsync(), provideHttpClient(), provideRouter(routes)],
+	providers: [provideAnimationsAsync(), provideHttpClient(), provideRouter(routes)],
 }

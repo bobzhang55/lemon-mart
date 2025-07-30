@@ -7,7 +7,7 @@ import { appConfig } from './app/app.config'
 import { environment } from './environments/environment'
 
 if (environment.production) {
-  enableProdMode()
+	enableProdMode()
 }
 
 bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err))

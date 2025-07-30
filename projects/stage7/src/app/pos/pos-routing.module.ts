@@ -7,7 +7,7 @@ import { PosComponent } from './pos/pos.component'
 const routes: Routes = [{ path: '', component: PosComponent }]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class PosRoutingModule { }
+export class PosRoutingModule {}

@@ -3,22 +3,22 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { ReceiptLookupComponent } from './receipt-lookup.component'
 
 describe('ReceiptLookupComponent', () => {
-  let component: ReceiptLookupComponent
-  let fixture: ComponentFixture<ReceiptLookupComponent>
+	let component: ReceiptLookupComponent
+	let fixture: ComponentFixture<ReceiptLookupComponent>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [ReceiptLookupComponent],
-    }).compileComponents()
-  }))
+	beforeEach(waitForAsync(() => {
+		TestBed.configureTestingModule({
+			imports: [ReceiptLookupComponent],
+		}).compileComponents()
+	}))
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ReceiptLookupComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ReceiptLookupComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
 
-  it('should create', () => {
-    expect(component).toBeTruthy()
-  })
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
 })

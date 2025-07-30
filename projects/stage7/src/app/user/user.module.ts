@@ -8,12 +8,12 @@ import { ProfileComponent } from './profile/profile.component'
 import { UserRoutingModule } from './user-routing.module'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    ProfileComponent,
-    LogoutComponent,
-    NavigationMenuComponent,
-  ],
+	imports: [
+		CommonModule,
+		UserRoutingModule,
+		ProfileComponent,
+		LogoutComponent,
+		NavigationMenuComponent,
+	],
 })
-export class UserModule { }
+export class UserModule {}
