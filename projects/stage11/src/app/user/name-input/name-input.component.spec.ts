@@ -4,25 +4,25 @@ import { commonTestingModules } from '../../common/common.testing'
 import { NameInputComponent } from './name-input.component'
 
 describe('NameInputComponent', () => {
-  let component: NameInputComponent
+	let component: NameInputComponent
 
-  describe('DOM Tests', () => {
-    let fixture: ComponentFixture<NameInputComponent>
+	describe('DOM Tests', () => {
+		let fixture: ComponentFixture<NameInputComponent>
 
-    beforeEach(waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [...commonTestingModules, NameInputComponent],
-      }).compileComponents()
-    }))
+		beforeEach(waitForAsync(() => {
+			TestBed.configureTestingModule({
+				imports: [...commonTestingModules, NameInputComponent],
+			}).compileComponents()
+		}))
 
-    beforeEach(() => {
-      fixture = TestBed.createComponent(NameInputComponent)
-      component = fixture.componentInstance
-      fixture.detectChanges()
-    })
+		beforeEach(() => {
+			fixture = TestBed.createComponent(NameInputComponent)
+			component = fixture.componentInstance
+			fixture.detectChanges()
+		})
 
-    it('should create', () => {
-      expect(component).toBeTruthy()
-    })
-  })
+		it('should create', () => {
+			expect(component).toBeTruthy()
+		})
+	})
 })

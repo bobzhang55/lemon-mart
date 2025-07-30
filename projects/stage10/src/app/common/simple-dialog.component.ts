@@ -3,8 +3,8 @@ import { MatButtonModule } from '@angular/material/button'
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog'
 
 @Component({
-  // prettier-ignore
-  template: `
+	// prettier-ignore
+	template: `
     <h2 mat-dialog-title>{{ data.title }}</h2>
     <mat-dialog-content>
       <p>{{ data.content }}</p>
@@ -22,13 +22,18 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
       </button>
     </mat-dialog-actions>
     `,
-  standalone: true,
-  imports: [MatDialogModule, MatButtonModule],
+	standalone: true,
+	imports: [MatDialogModule, MatButtonModule],
 })
 export class SimpleDialogComponent {
-  constructor(
-    public dialogRef: MatDialogRef<SimpleDialogComponent, boolean>,
-    @Inject(MAT_DIALOG_DATA)
-    public data: { title: string; content: string; okText: string; cancelText: string }
-  ) {}
+	constructor(
+		public dialogRef: MatDialogRef<SimpleDialogComponent, boolean>,
+		@Inject(MAT_DIALOG_DATA)
+		public data: {
+			title: string
+			content: string
+			okText: string
+			cancelText: string
+		}
+	) {}
 }

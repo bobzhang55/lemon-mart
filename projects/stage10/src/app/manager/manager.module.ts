@@ -8,13 +8,13 @@ import { ReceiptLookupComponent } from './receipt-lookup/receipt-lookup.componen
 import { UserManagementComponent } from './user-management/user-management.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ManagerRoutingModule,
-    ManagerHomeComponent,
-    ManagerComponent,
-    UserManagementComponent,
-    ReceiptLookupComponent,
-  ],
+	imports: [
+		CommonModule,
+		ManagerRoutingModule,
+		ManagerHomeComponent,
+		ManagerComponent,
+		UserManagementComponent,
+		ReceiptLookupComponent,
+	],
 })
 export class ManagerModule {}

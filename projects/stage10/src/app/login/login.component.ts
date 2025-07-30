@@ -19,85 +19,87 @@ import { UiService } from '../common/ui.service'
 import { EmailValidation, PasswordValidation } from '../common/validations'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: 'login.component.html',
-  styles: `
+	selector: 'app-login',
+	templateUrl: 'login.component.html',
+	styles: `
       .error { color: red; }
       div[fxLayout] { margin-top: 32px; }
     `,
-  standalone: true,
-  imports: [
-    FlexModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatGridListModule,
-  ],
+	standalone: true,
+	imports: [
+		FlexModule,
+		MatCardModule,
+		ReactiveFormsModule,
+		MatIconModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatButtonModule,
+		MatExpansionModule,
+		MatGridListModule,
+	],
 })
 export class LoginComponent implements OnInit {
-  private readonly formBuilder = inject(FormBuilder)
-  private readonly authService = inject(AuthService)
-  private readonly router = inject(Router)
-  private readonly route = inject(ActivatedRoute)
-  private readonly uiService = inject(UiService)
+	private readonly formBuilder = inject(FormBuilder)
+	private readonly authService = inject(AuthService)
+	private readonly router = inject(Router)
+	private readonly route = inject(ActivatedRoute)
+	private readonly uiService = inject(UiService)
 
-  loginForm!: FormGroup
-  loginError = ''
-  roles = Object.keys(Role)
-  authMode = environment.authMode
-  AuthMode = AuthMode
+	loginForm!: FormGroup
+	loginError = ''
+	roles = Object.keys(Role)
+	authMode = environment.authMode
+	AuthMode = AuthMode
 
-  get redirectUrl() {
-    return this.route.snapshot.queryParamMap.get('redirectUrl') || ''
-  }
+	get redirectUrl() {
+		return this.route.snapshot.queryParamMap.get('redirectUrl') || ''
+	}
 
-  ngOnInit() {
-    this.authService.logout()
-    this.buildLoginForm()
-  }
+	ngOnInit() {
+		this.authService.logout()
+		this.buildLoginForm()
+	}
 
-  buildLoginForm() {
-    this.loginForm = this.formBuilder.group({
-      email: ['', EmailValidation],
-      password: ['', PasswordValidation],
-    })
-  }
+	buildLoginForm() {
+		this.loginForm = this.formBuilder.group({
+			email: ['', EmailValidation],
+			password: ['', PasswordValidation],
+		})
+	}
 
-  async login(submittedForm: FormGroup) {
-    this.authService
-      .login(submittedForm.value.email, submittedForm.value.password)
-      .pipe(catchError((err) => (this.loginError = err)))
+	async login(submittedForm: FormGroup) {
+		this.authService
+			.login(submittedForm.value.email, submittedForm.value.password)
+			.pipe(catchError((err) => (this.loginError = err)))
 
-    combineLatest([this.authService.authStatus$, this.authService.currentUser$])
-      .pipe(
-        filter(([authStatus, user]) => authStatus.isAuthenticated && user?._id !== ''),
-        first(),
-        tap(([authStatus, user]) => {
-          this.uiService.showToast(
-            `Welcome ${user.fullName}! Role: ${authStatus.userRole}`
-          )
-          this.router.navigate([
-            this.redirectUrl || this.homeRoutePerRole(user.role as Role),
-          ])
-        })
-      )
-      .subscribe()
-  }
+		combineLatest([this.authService.authStatus$, this.authService.currentUser$])
+			.pipe(
+				filter(
+					([authStatus, user]) => authStatus.isAuthenticated && user?._id !== ''
+				),
+				first(),
+				tap(([authStatus, user]) => {
+					this.uiService.showToast(
+						`Welcome ${user.fullName}! Role: ${authStatus.userRole}`
+					)
+					this.router.navigate([
+						this.redirectUrl || this.homeRoutePerRole(user.role as Role),
+					])
+				})
+			)
+			.subscribe()
+	}
 
-  private homeRoutePerRole(role: Role) {
-    switch (role) {
-      case Role.Cashier:
-        return '/pos'
-      case Role.Clerk:
-        return '/inventory'
-      case Role.Manager:
-        return '/manager'
-      default:
-        return '/user/profile'
-    }
-  }
+	private homeRoutePerRole(role: Role) {
+		switch (role) {
+			case Role.Cashier:
+				return '/pos'
+			case Role.Clerk:
+				return '/inventory'
+			case Role.Manager:
+				return '/manager'
+			default:
+				return '/user/profile'
+		}
+	}
 }

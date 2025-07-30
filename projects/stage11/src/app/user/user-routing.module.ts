@@ -6,12 +6,12 @@ import { LogoutComponent } from './logout/logout.component'
 import { ProfileComponent } from './profile/profile.component'
 
 const routes: Routes = [
-  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
-  { path: 'logout', component: LogoutComponent },
+	{ path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+	{ path: 'logout', component: LogoutComponent },
 ]
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class UserRoutingModule {}

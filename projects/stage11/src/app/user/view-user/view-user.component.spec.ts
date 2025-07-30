@@ -4,23 +4,23 @@ import { commonTestingModules } from '../../common/common.testing'
 import { ViewUserComponent } from './view-user.component'
 
 describe('ViewUserComponent', () => {
-  let component: ViewUserComponent
-  let fixture: ComponentFixture<ViewUserComponent>
+	let component: ViewUserComponent
+	let fixture: ComponentFixture<ViewUserComponent>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      providers: [],
-      imports: [...commonTestingModules, ViewUserComponent],
-    }).compileComponents()
-  }))
+	beforeEach(waitForAsync(() => {
+		TestBed.configureTestingModule({
+			providers: [],
+			imports: [...commonTestingModules, ViewUserComponent],
+		}).compileComponents()
+	}))
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ViewUserComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+	beforeEach(() => {
+		fixture = TestBed.createComponent(ViewUserComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
 
-  it('should create', () => {
-    expect(component).toBeTruthy()
-  })
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
 })

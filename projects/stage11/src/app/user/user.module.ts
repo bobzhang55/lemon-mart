@@ -12,18 +12,18 @@ import { UserRoutingModule } from './user-routing.module'
 import { ViewUserComponent } from './view-user/view-user.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    NgxMaskDirective,
-    ProfileComponent,
-    LogoutComponent,
-    ViewUserComponent,
-    NameInputComponent,
-    ProfileInitialComponent, // Temp for stage11 only
-  ],
-  providers: [provideNgxMask()],
+	imports: [
+		CommonModule,
+		UserRoutingModule,
+		ReactiveFormsModule,
+		FlexLayoutModule,
+		NgxMaskDirective,
+		ProfileComponent,
+		LogoutComponent,
+		ViewUserComponent,
+		NameInputComponent,
+		ProfileInitialComponent, // Temp for stage11 only
+	],
+	providers: [provideNgxMask()],
 })
 export class UserModule {}

@@ -4,23 +4,23 @@ import { commonTestingModules, commonTestingProviders } from '../../common/commo
 import { LogoutComponent } from './logout.component'
 
 describe('LogoutComponent', () => {
-  let component: LogoutComponent
-  let fixture: ComponentFixture<LogoutComponent>
+	let component: LogoutComponent
+	let fixture: ComponentFixture<LogoutComponent>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [...commonTestingModules, LogoutComponent],
-      providers: [...commonTestingProviders],
-    }).compileComponents()
-  }))
+	beforeEach(waitForAsync(() => {
+		TestBed.configureTestingModule({
+			imports: [...commonTestingModules, LogoutComponent],
+			providers: [...commonTestingProviders],
+		}).compileComponents()
+	}))
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LogoutComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+	beforeEach(() => {
+		fixture = TestBed.createComponent(LogoutComponent)
+		component = fixture.componentInstance
+		fixture.detectChanges()
+	})
 
-  it('should create', () => {
-    expect(component).toBeTruthy()
-  })
+	it('should create', () => {
+		expect(component).toBeTruthy()
+	})
 })

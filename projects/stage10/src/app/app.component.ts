@@ -17,8 +17,8 @@ import { AuthService } from './auth/auth.service'
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component'
 
 @Component({
-  selector: 'app-root',
-  styles: `
+	selector: 'app-root',
+	styles: `
       .app-container {
         display: flex;
         flex-direction: column;
@@ -45,8 +45,8 @@ import { NavigationMenuComponent } from './navigation-menu/navigation-menu.compo
         border-radius: 50%;
       }
     `,
-  // prettier-ignore
-  template: `
+	// prettier-ignore
+	template: `
     <div class="app-container">
       @if ({
         status: authService.authStatus$ | async,
@@ -94,52 +94,52 @@ import { NavigationMenuComponent } from './navigation-menu/navigation-menu.compo
       </mat-sidenav-container>
     </div>
     `,
-  standalone: true,
-  imports: [
-    FlexModule,
-    RouterLink,
-    NavigationMenuComponent,
-    RouterOutlet,
-    AsyncPipe,
-    MatIconModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    NgOptimizedImage,
-  ],
+	standalone: true,
+	imports: [
+		FlexModule,
+		RouterLink,
+		NavigationMenuComponent,
+		RouterOutlet,
+		AsyncPipe,
+		MatIconModule,
+		MatToolbarModule,
+		MatButtonModule,
+		MatSidenavModule,
+		NgOptimizedImage,
+	],
 })
 export class AppComponent implements OnInit {
-  private readonly destroyRef = inject(DestroyRef)
-  opened!: boolean
+	private readonly destroyRef = inject(DestroyRef)
+	opened!: boolean
 
-  constructor(
-    iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer,
-    public authService: AuthService,
-    public media: MediaObserver
-  ) {
-    iconRegistry.addSvgIcon(
-      'lemon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/lemon.svg')
-    )
-  }
+	constructor(
+		iconRegistry: MatIconRegistry,
+		sanitizer: DomSanitizer,
+		public authService: AuthService,
+		public media: MediaObserver
+	) {
+		iconRegistry.addSvgIcon(
+			'lemon',
+			sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/lemon.svg')
+		)
+	}
 
-  ngOnInit() {
-    combineLatest([this.media.asObservable(), this.authService.authStatus$])
-      .pipe(
-        tap(([mediaValue, authStatus]) => {
-          if (!authStatus?.isAuthenticated) {
-            this.opened = false
-          } else {
-            if (mediaValue[0].mqAlias === 'xs') {
-              this.opened = false
-            } else {
-              this.opened = true
-            }
-          }
-        }),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe()
-  }
+	ngOnInit() {
+		combineLatest([this.media.asObservable(), this.authService.authStatus$])
+			.pipe(
+				tap(([mediaValue, authStatus]) => {
+					if (!authStatus?.isAuthenticated) {
+						this.opened = false
+					} else {
+						if (mediaValue[0].mqAlias === 'xs') {
+							this.opened = false
+						} else {
+							this.opened = true
+						}
+					}
+				}),
+				takeUntilDestroyed(this.destroyRef)
+			)
+			.subscribe()
+	}
 }
