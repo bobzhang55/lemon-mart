@@ -19,30 +19,22 @@ $lemon-mart-accent: mat.define-palette(mat.$lime-palette, A400);
 $lemon-mart-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$lemon-mart-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $lemon-mart-primary,
-      accent: $lemon-mart-accent,
-      warn: $lemon-mart-warn,
-    ),
-    typography: mat.define-typography-config(),
-    density: 0,
-  )
-);
+$lemon-mart-theme: mat.define-light-theme((color: (primary: $lemon-mart-primary,
+        accent: $lemon-mart-accent,
+        warn: $lemon-mart-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
 
 // create a dark theme
-$lemon-mart-dark-theme: mat.define-dark-theme(
-  (
-    color: (
-      primary: $lemon-mart-primary,
-      accent: $lemon-mart-accent,
-      warn: $lemon-mart-warn,
-    ),
-    typography: mat.define-typography-config(),
-    density: 0,
-  )
-);
+$lemon-mart-dark-theme: mat.define-dark-theme((color: (primary: $lemon-mart-primary,
+        accent: $lemon-mart-accent,
+        warn: $lemon-mart-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
 
 .dark-theme {
   @include mat.all-component-colors($lemon-mart-dark-theme);

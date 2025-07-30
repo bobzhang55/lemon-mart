@@ -13,4 +13,4 @@ import { RouterLink } from '@angular/router'
   standalone: true,
   imports: [RouterLink],
 })
-export class PageNotFoundComponent {}
+export class PageNotFoundComponent { }

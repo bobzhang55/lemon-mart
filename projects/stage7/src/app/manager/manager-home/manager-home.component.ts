@@ -12,4 +12,4 @@ import { Component } from '@angular/core'
   styles: ``,
   standalone: true,
 })
-export class ManagerHomeComponent {}
+export class ManagerHomeComponent { }

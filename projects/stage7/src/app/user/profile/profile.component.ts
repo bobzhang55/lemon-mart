@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styleUrls: ['./profile.component.scss'],
   standalone: true,
 })
-export class ProfileComponent {}
+export class ProfileComponent { }

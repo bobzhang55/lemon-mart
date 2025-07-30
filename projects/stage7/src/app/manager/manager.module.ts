@@ -21,4 +21,4 @@ import { UserManagementComponent } from './user-management/user-management.compo
     ReceiptLookupComponent,
   ],
 })
-export class ManagerModule {}
+export class ManagerModule { }

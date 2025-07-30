@@ -26,4 +26,4 @@ import { UserTableComponent } from './user-table/user-table.component'
   ],
   providers: [UserService],
 })
-export class ManagerModule {}
+export class ManagerModule { }

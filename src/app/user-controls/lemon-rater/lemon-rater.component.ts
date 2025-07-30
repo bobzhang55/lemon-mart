@@ -47,9 +47,9 @@ export class LemonRaterComponent implements ControlValueAccessor, AfterViewInit 
   ])
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChanged: (value: number) => unknown = () => {}
+  onChanged: (value: number) => unknown = () => { }
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onTouched: () => unknown = () => {}
+  onTouched: () => unknown = () => { }
 
   ngAfterViewInit(): void {
     this.setSelectedText(this.internalValue)

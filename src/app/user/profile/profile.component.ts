@@ -81,8 +81,7 @@ import { IUSState, USStateFilter } from './data'
 })
 export class ProfileComponent
   extends BaseFormDirective<IUser>
-  implements OnInit, OnDestroy
-{
+  implements OnInit, OnDestroy {
   private readonly cache = inject(CacheService)
   private get currentUserRole() {
     return this.authService.authStatus$.value.userRole

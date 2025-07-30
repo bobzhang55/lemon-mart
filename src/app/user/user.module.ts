@@ -22,4 +22,4 @@ import { UserRoutingModule } from './user-routing.module'
   ],
   providers: [UserService, UserEntityService, provideNgxMask()],
 })
-export class UserModule {}
+export class UserModule { }

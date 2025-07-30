@@ -23,5 +23,5 @@ import { LoginComponent } from '../login/login.component'
   imports: [LoginComponent, AsyncPipe],
 })
 export class HomeComponent {
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) { }
 }

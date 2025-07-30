@@ -30,6 +30,7 @@ body {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
@@ -41,11 +42,13 @@ body {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
   }
 }
+
 .path {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
@@ -63,15 +66,19 @@ body {
   0% {
     stroke: #4285f4;
   }
+
   25% {
     stroke: #de3e35;
   }
+
   50% {
     stroke: #f7c223;
   }
+
   75% {
     stroke: #1b9a59;
   }
+
   100% {
     stroke: #4285f4;
   }
@@ -81,43 +88,53 @@ body {
   0% {
     stroke: #4285f4;
   }
+
   25% {
     stroke: #de3e35;
   }
+
   50% {
     stroke: #f7c223;
   }
+
   75% {
     stroke: #1b9a59;
   }
+
   100% {
     stroke: #4285f4;
   }
 }
+
 @-webkit-keyframes dash {
   0% {
     stroke-dashoffset: 187;
   }
+
   50% {
     stroke-dashoffset: 46.75;
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
   }
+
   100% {
     stroke-dashoffset: 187;
     -webkit-transform: rotate(450deg);
     transform: rotate(450deg);
   }
 }
+
 @keyframes dash {
   0% {
     stroke-dashoffset: 187;
   }
+
   50% {
     stroke-dashoffset: 46.75;
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
   }
+
   100% {
     stroke-dashoffset: 187;
     -webkit-transform: rotate(450deg);
@@ -127,14 +144,12 @@ body {
 
 .animate-text {
   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #4285f4 0%,
-    #de3e35 25%,
-    #f7c223 50%,
-    #1b9a59 75%,
-    #4285f4 100%
-  );
+  background-image: linear-gradient(-225deg,
+      #4285f4 0%,
+      #de3e35 25%,
+      #f7c223 50%,
+      #1b9a59 75%,
+      #4285f4 100%);
   background-size: auto auto;
   background-clip: border-box;
   background-size: 200% auto;

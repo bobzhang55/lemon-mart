@@ -9,4 +9,4 @@ import { TransactionService } from './transaction/transaction.service'
   imports: [CommonModule, PosRoutingModule, PosComponent],
   providers: [TransactionService],
 })
-export class PosModule {}
+export class PosModule { }

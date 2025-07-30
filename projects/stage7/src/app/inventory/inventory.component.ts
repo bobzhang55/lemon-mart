@@ -36,4 +36,4 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
     RouterOutlet,
   ],
 })
-export class InventoryComponent {}
+export class InventoryComponent { }

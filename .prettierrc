@@ -1,11 +1,12 @@
 {
-  "tabWidth": 2,
+  "tabWidth": 4,
   "useTabs": false,
   "printWidth": 90,
   "semi": false,
   "singleQuote": true,
   "trailingComma": "es5",
   "bracketSameLine": true,
+  "endOfLine": "auto",
   "overrides": [
     {
       "files": "*.html",

@@ -20,4 +20,4 @@ import { StockEntryComponent } from './stock-entry/stock-entry.component'
     CategoriesComponent,
   ],
 })
-export class InventoryModule {}
+export class InventoryModule { }

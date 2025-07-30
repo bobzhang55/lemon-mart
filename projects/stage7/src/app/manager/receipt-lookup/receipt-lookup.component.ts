@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styleUrls: ['./receipt-lookup.component.scss'],
   standalone: true,
 })
-export class ReceiptLookupComponent {}
+export class ReceiptLookupComponent { }

@@ -1,7 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="end">
-  <mat-slide-toggle
-    [checked]="demoViewDetailsColumn()"
-    (change)="demoViewDetailsColumn.set($event.checked)">
+  <mat-slide-toggle [checked]="demoViewDetailsColumn()" (change)="demoViewDetailsColumn.set($event.checked)">
     Demo 'View Details' Column
   </mat-slide-toggle>
 </div>
@@ -13,7 +11,7 @@
         <input matInput placeholder="Search" aria-label="Search" [formControl]="search" />
         <mat-hint>Search by e-mail or name</mat-hint>
         @if (search.invalid) {
-          <mat-error> Type more than one character to search </mat-error>
+        <mat-error> Type more than one character to search </mat-error>
         }
       </mat-form-field>
     </div>
@@ -21,21 +19,16 @@
 </div>
 <div class="mat-elevation-z8">
   @if (isLoading) {
-    <div class="loading-shade">
-      <mat-spinner></mat-spinner>
-    </div>
+  <div class="loading-shade">
+    <mat-spinner></mat-spinner>
+  </div>
   }
   @if (hasError) {
-    <div class="error">
-      {{ errorText }}
-    </div>
+  <div class="error">
+    {{ errorText }}
+  </div>
   }
-  <mat-table
-    class="full-width"
-    [dataSource]="items$"
-    matSort
-    matSortActive="name"
-    matSortDirection="asc"
+  <mat-table class="full-width" [dataSource]="items$" matSort matSortActive="name" matSortDirection="asc"
     matSortDisableClear>
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
@@ -54,23 +47,17 @@
     <ng-container matColumnDef="_id">
       <mat-header-cell *matHeaderCellDef>View Details</mat-header-cell>
       <mat-cell *matCellDef="let row" style="margin-right: 8px">
-        <button
-          mat-icon-button
-          [routerLink]="[
+        <button mat-icon-button [routerLink]="[
             '../users',
             { outlets: { detail: ['user', { userId: row._id }] } }
-          ]"
-          [skipLocationChange]="true">
+          ]" [skipLocationChange]="true">
           <mat-icon>visibility</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns()"></mat-header-row>
-    <mat-row
-      matRipple
-      (click)="selectedRow = row; demoViewDetailsColumn() ? 'noop' : showDetail(row._id)"
-      [class.selected]="selectedRow === row"
-      *matRowDef="let row; columns: displayedColumns()"></mat-row>
+    <mat-row matRipple (click)="selectedRow = row; demoViewDetailsColumn() ? 'noop' : showDetail(row._id)"
+      [class.selected]="selectedRow === row" *matRowDef="let row; columns: displayedColumns()"></mat-row>
   </mat-table>
 
   <mat-toolbar>

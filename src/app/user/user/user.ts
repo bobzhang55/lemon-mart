@@ -59,7 +59,7 @@ export class User implements IUser {
       zip: '',
     },
     public phones: IPhone[] = []
-  ) {}
+  ) { }
 
   static Build(user: IUser) {
     if (!user) {

@@ -22,4 +22,4 @@ import { FlexModule } from '@ngbracket/ngx-layout/flex'
   standalone: true,
   imports: [FlexModule, MatButtonModule, RouterLink],
 })
-export class HomeComponent {}
+export class HomeComponent { }

@@ -8,4 +8,4 @@ import { PosRoutingModule } from './pos-routing.module'
 @NgModule({
   imports: [CommonModule, PosRoutingModule, PosComponent],
 })
-export class PosModule {}
+export class PosModule { }

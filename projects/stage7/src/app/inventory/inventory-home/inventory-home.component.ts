@@ -12,4 +12,4 @@ import { Component } from '@angular/core'
   styles: ``,
   standalone: true,
 })
-export class InventoryHomeComponent {}
+export class InventoryHomeComponent { }

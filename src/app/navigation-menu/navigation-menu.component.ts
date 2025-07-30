@@ -39,4 +39,4 @@ import { RouterLink, RouterLinkActive } from '@angular/router'
   standalone: true,
   imports: [MatListModule, RouterLinkActive, RouterLink],
 })
-export class NavigationMenuComponent {}
+export class NavigationMenuComponent { }

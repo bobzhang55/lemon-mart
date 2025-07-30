@@ -36,4 +36,4 @@ import { FlexModule } from '@ngbracket/ngx-layout/flex'
     RouterOutlet,
   ],
 })
-export class ManagerComponent {}
+export class ManagerComponent { }

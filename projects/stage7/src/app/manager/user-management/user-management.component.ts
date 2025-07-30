@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styleUrls: ['./user-management.component.scss'],
   standalone: true,
 })
-export class UserManagementComponent {}
+export class UserManagementComponent { }

@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styles: ``,
   standalone: true,
 })
-export class LogoutComponent {}
+export class LogoutComponent { }

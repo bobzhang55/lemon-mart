@@ -30,5 +30,5 @@ export class SimpleDialogComponent {
     public dialogRef: MatDialogRef<SimpleDialogComponent, boolean>,
     @Inject(MAT_DIALOG_DATA)
     public data: { title: string; content: string; okText: string; cancelText: string }
-  ) {}
+  ) { }
 }

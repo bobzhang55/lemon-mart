@@ -122,13 +122,11 @@ export class FieldErrorDirective implements OnDestroy, OnChanges {
       case 'required':
         return `${label} is required`
       case 'minlength':
-        return `${label} must be at least ${
-          this.fieldControl?.getError(error)?.requiredLength ?? 2
-        } characters`
+        return `${label} must be at least ${this.fieldControl?.getError(error)?.requiredLength ?? 2
+          } characters`
       case 'maxlength':
-        return `${label} can't exceed ${
-          this.fieldControl?.getError(error)?.requiredLength ?? 50
-        } characters`
+        return `${label} can't exceed ${this.fieldControl?.getError(error)?.requiredLength ?? 50
+          } characters`
       case 'invalid':
         return `A valid ${label} is required`
     }

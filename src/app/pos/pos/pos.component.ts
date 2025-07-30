@@ -27,7 +27,7 @@ export class PosComponent implements OnInit {
   constructor(
     private transactionService: TransactionService,
     private uiService: UiService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.currentTransaction = {

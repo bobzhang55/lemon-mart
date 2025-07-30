@@ -16,4 +16,4 @@ import { UserRoutingModule } from './user-routing.module'
     NavigationMenuComponent,
   ],
 })
-export class UserModule {}
+export class UserModule { }

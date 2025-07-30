@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styles: ``,
   standalone: true,
 })
-export class NavigationMenuComponent {}
+export class NavigationMenuComponent { }

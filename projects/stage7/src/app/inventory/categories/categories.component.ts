@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styleUrls: ['./categories.component.scss'],
   standalone: true,
 })
-export class CategoriesComponent {}
+export class CategoriesComponent { }

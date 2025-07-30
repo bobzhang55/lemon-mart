@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styleUrls: ['./products.component.scss'],
   standalone: true,
 })
-export class ProductsComponent {}
+export class ProductsComponent { }

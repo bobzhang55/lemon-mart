@@ -6,4 +6,4 @@ import { Component } from '@angular/core'
   styleUrls: ['./stock-entry.component.scss'],
   standalone: true,
 })
-export class StockEntryComponent {}
+export class StockEntryComponent { }
