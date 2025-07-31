@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -5,17 +6,18 @@
 import { AuthMode } from '../app/auth/auth.enum'
 
 export const environment = {
-	production: false,
-	authMode: AuthMode.InMemory,
-	firebase: {
-		apiKey: 'AIzaSyA_39OnkusNS7WeMqTuhRosonMV20WntcA',
-		authDomain: 'lemon-mart-007.firebaseapp.com',
-		databaseURL: 'https://lemon-mart-007.firebaseio.com',
-		projectId: 'lemon-mart-007',
-		storageBucket: '',
-		messagingSenderId: '416892066612',
-		appId: '1:416892066612:web:ec2f404c18fd4bd8',
-	},
+    production: false,
+    authMode: AuthMode.InMemory,
+    baseUrl: 'localhost:3000',
+    firebase: {
+        apiKey: 'AIzaSyA_39OnkusNS7WeMqTuhRosonMV20WntcA',
+        authDomain: 'lemon-mart-007.firebaseapp.com',
+        databaseURL: 'https://lemon-mart-007.firebaseio.com',
+        projectId: 'lemon-mart-007',
+        storageBucket: '',
+        messagingSenderId: '416892066612',
+        appId: '1:416892066612:web:ec2f404c18fd4bd8',
+    },
 }
 
 /*

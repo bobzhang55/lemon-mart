@@ -6,27 +6,27 @@ import { LoginComponent } from '../login/login.component'
 import { HomeComponent } from './home.component'
 
 describe('HomeComponent', () => {
-	let component: HomeComponent
-	let fixture: ComponentFixture<HomeComponent>
+    let component: HomeComponent
+    let fixture: ComponentFixture<HomeComponent>
 
-	beforeEach(waitForAsync(() => {
-		TestBed.configureTestingModule({
-			providers: [...commonTestingProviders],
-			imports: [
-				...commonTestingModules,
-				HomeComponent,
-				MockComponent(LoginComponent),
-			],
-		}).compileComponents()
-	}))
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            providers: [...commonTestingProviders],
+            imports: [
+                ...commonTestingModules,
+                HomeComponent,
+                MockComponent(LoginComponent),
+            ],
+        }).compileComponents()
+    }))
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(HomeComponent)
-		component = fixture.componentInstance
-		fixture.detectChanges()
-	})
+    beforeEach(() => {
+        fixture = TestBed.createComponent(HomeComponent)
+        component = fixture.componentInstance
+        fixture.detectChanges()
+    })
 
-	it('should create', () => {
-		expect(component).toBeTruthy()
-	})
+    it('should create', () => {
+        expect(component).toBeTruthy()
+    })
 })

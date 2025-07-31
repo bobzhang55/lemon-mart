@@ -11,13 +11,13 @@ import { UserManagementComponent } from './user-management/user-management.compo
 // export const managerModuleRoutes: Routes = [{ path: '', component: ManagerHomeComponent }]
 
 @NgModule({
-	imports: [
-		CommonModule,
-		ManagerRoutingModule,
-		ManagerHomeComponent,
-		ManagerComponent,
-		UserManagementComponent,
-		ReceiptLookupComponent,
-	],
+    imports: [
+        CommonModule,
+        ManagerRoutingModule,
+        ManagerHomeComponent,
+        ManagerComponent,
+        UserManagementComponent,
+        ReceiptLookupComponent,
+    ],
 })
 export class ManagerModule {}

@@ -4,23 +4,23 @@ import { commonTestingModules, commonTestingProviders } from '../common/common.t
 import { LoginComponent } from './login.component'
 
 describe('LoginComponent', () => {
-	let component: LoginComponent
-	let fixture: ComponentFixture<LoginComponent>
+    let component: LoginComponent
+    let fixture: ComponentFixture<LoginComponent>
 
-	beforeEach(waitForAsync(() => {
-		TestBed.configureTestingModule({
-			imports: [...commonTestingModules, LoginComponent],
-			providers: [...commonTestingProviders],
-		}).compileComponents()
-	}))
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            imports: [...commonTestingModules, LoginComponent],
+            providers: [...commonTestingProviders],
+        }).compileComponents()
+    }))
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(LoginComponent)
-		component = fixture.componentInstance
-		fixture.detectChanges()
-	})
+    beforeEach(() => {
+        fixture = TestBed.createComponent(LoginComponent)
+        component = fixture.componentInstance
+        fixture.detectChanges()
+    })
 
-	it('should create', () => {
-		expect(component).toBeTruthy()
-	})
+    it('should create', () => {
+        expect(component).toBeTruthy()
+    })
 })

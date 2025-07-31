@@ -4,22 +4,22 @@ import { commonTestingModules } from '../common/common.testing'
 import { NavigationMenuComponent } from './navigation-menu.component'
 
 describe('NavigationMenuComponent', () => {
-	let component: NavigationMenuComponent
-	let fixture: ComponentFixture<NavigationMenuComponent>
+    let component: NavigationMenuComponent
+    let fixture: ComponentFixture<NavigationMenuComponent>
 
-	beforeEach(waitForAsync(() => {
-		TestBed.configureTestingModule({
-			imports: [...commonTestingModules, NavigationMenuComponent],
-		}).compileComponents()
-	}))
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            imports: [...commonTestingModules, NavigationMenuComponent],
+        }).compileComponents()
+    }))
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(NavigationMenuComponent)
-		component = fixture.componentInstance
-		fixture.detectChanges()
-	})
+    beforeEach(() => {
+        fixture = TestBed.createComponent(NavigationMenuComponent)
+        component = fixture.componentInstance
+        fixture.detectChanges()
+    })
 
-	it('should create', () => {
-		expect(component).toBeTruthy()
-	})
+    it('should create', () => {
+        expect(component).toBeTruthy()
+    })
 })

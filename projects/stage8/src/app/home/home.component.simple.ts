@@ -6,39 +6,39 @@ import { filter, tap } from 'rxjs/operators'
 import { AuthService } from '../auth/auth.service'
 
 @Component({
-	selector: 'app-home',
-	styles: `
+    selector: 'app-home',
+    styles: `
       div[fxLayout] {
         margin-top: 32px;
       }
   `,
-	template: `
-		<div fxLayout="column" fxLayoutAlign="center center">
-			<span class="mat-display-2">Hello, Limoncu!</span>
-			<button mat-raised-button color="primary" (click)="login()">
-				Login as Manager
-			</button>
-		</div>
-	`,
+    template: `
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <span class="mat-display-2">Hello, Limoncu!</span>
+            <button mat-raised-button color="primary" (click)="login()">
+                Login as Manager
+            </button>
+        </div>
+    `,
 })
 export class HomeComponent {
-	constructor(
-		private authService: AuthService,
-		private router: Router
-	) {}
+    constructor(
+        private authService: AuthService,
+        private router: Router
+    ) {}
 
-	login() {
-		this.authService.login('manager@test.com', '12345678')
+    login() {
+        this.authService.login('manager@test.com', '12345678')
 
-		combineLatest([this.authService.authStatus$, this.authService.currentUser$])
-			.pipe(
-				filter(
-					([authStatus, user]) => authStatus.isAuthenticated && user?._id !== ''
-				),
-				tap(() => {
-					this.router.navigate(['/manager'])
-				})
-			)
-			.subscribe()
-	}
+        combineLatest([this.authService.authStatus$, this.authService.currentUser$])
+            .pipe(
+                filter(
+                    ([authStatus, user]) => authStatus.isAuthenticated && user?._id !== ''
+                ),
+                tap(() => {
+                    this.router.navigate(['/manager'])
+                })
+            )
+            .subscribe()
+    }
 }
